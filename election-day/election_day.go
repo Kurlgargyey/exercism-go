@@ -10,7 +10,10 @@ func NewVoteCounter(initialVotes int) *int {
 
 // VoteCount extracts the number of votes from a counter.
 func VoteCount(counter *int) int {
-	return *counter
+	if counter != nil {
+		return *counter
+	}
+	return 0
 }
 
 // IncrementVoteCount increments the value in a vote counter.
