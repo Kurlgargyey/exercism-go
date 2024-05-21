@@ -27,7 +27,7 @@ func RemoveItem(bill, units map[string]int, item, unit string) bool {
 	quan, unit_exists := units[unit]
 	if item_exists && unit_exists {
 		switch {
-		case  bill[item] > quan:
+		case bill[item] > quan:
 			bill[item] -= quan
 		case bill[item] == quan:
 			delete(bill, item)
