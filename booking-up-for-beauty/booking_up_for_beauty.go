@@ -1,6 +1,8 @@
 package booking
 
-import "time"
+import (
+	"time"
+)
 
 // Schedule returns a time.Time from a string containing a date.
 func Schedule(date string) time.Time {
@@ -11,12 +13,16 @@ func Schedule(date string) time.Time {
 
 // HasPassed returns whether a date has passed.
 func HasPassed(date string) bool {
-	return time.Now().After(Schedule(date))
+	layout := "January 2, 2006 15:04:05"
+	t, _ := time.Parse(layout, date)
+	return time.Now().After(t)
 }
 
 // IsAfternoonAppointment returns whether a time is in the afternoon.
 func IsAfternoonAppointment(date string) bool {
-	return Schedule(date).Hour() >= 12
+	layout := "Monday, January 2, 2006 15:04:05"
+	t, _ := time.Parse(layout, date)
+	return t.Hour() >= 12 && t.Hour() < 18
 }
 
 // Description returns a formatted string of the appointment time.
