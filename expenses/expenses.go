@@ -65,7 +65,7 @@ func CategoryExpenses(in []Record, p DaysPeriod, c string) (float64, error) {
 
 	categorized := Filter(in, ByCategory(c))
 	if reflect.ValueOf(categorized).IsZero() {
-		return 0.0, errors.New("zero records belonging to the given category")
+		return 0.0, errors.New("no records belong to the given category")
 	}
 
 	for _, record := range Filter(categorized, ByDaysPeriod(p)) {
