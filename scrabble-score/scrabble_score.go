@@ -1,7 +1,9 @@
+// Package scrabble contains functionality for calculating the scrabble value of strings.
 package scrabble
 
 import "strings"
 
+//Score takes a string and returns its scrabble value.
 func Score(word string) int {
 	score := 0
 	for _, r := range strings.ToUpper(word) {
@@ -10,6 +12,7 @@ func Score(word string) int {
 	return score
 }
 
+//value returns the scrabble value of a given rune.
 func value(r rune) int {
 	switch r {
 	default:
