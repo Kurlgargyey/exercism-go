@@ -6,7 +6,7 @@ import (
 )
 
 func Valid(id string) bool {
-	double := false
+	double_next := false
 	length := 0
 	sum := 0
 	runes := []rune(id)
@@ -20,16 +20,16 @@ func Valid(id string) bool {
 		case unicode.IsDigit(r):
 			length++
 			num, _ := strconv.Atoi(string(r))
-			if double {
+			if double_next {
 				num = num * 2
 				if num > 9 {
 					num = num - 9
 				}
 				sum += num
-				double = false
+				double_next = false
 			} else {
 				sum += num
-				double = true
+				double_next = true
 			}
 		}
 	}
