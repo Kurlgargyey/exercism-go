@@ -17,7 +17,7 @@ func IsIsogram(word string) bool {
 	return !any_value(freqs, func(count int) bool { return count > 1 })
 }
 
-func any_value[T interface{}, K comparable](mapping map[K]T, pred func(T) bool) bool {
+func any_value[T any, K comparable](mapping map[K]T, pred func(T) bool) bool {
 	for _, v := range mapping {
 		if pred(v) {
 			return true
