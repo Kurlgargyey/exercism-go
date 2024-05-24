@@ -9,7 +9,7 @@ func Distance(a, b string) (int, error) {
 		return 0, errors.New("sequence lengths do not match")
 	}
 	distance := 0
-	for i, r := range a {
+	for i, r := range []rune(a) {
 		if []rune(b)[i] != r {
 			distance++
 		}
