@@ -12,10 +12,12 @@ func Valid(id string) bool {
 	runes := []rune(id)
 	for i := len(runes) - 1; i >= 0; i-- {
 		r := runes[i]
-		if !unicode.IsDigit(r) && !unicode.IsSpace(r) {
+		switch {
+		default:
+			continue
+		case !unicode.IsDigit(r) && !unicode.IsSpace(r):
 			return false
-		}
-		if unicode.IsDigit(r) {
+		case unicode.IsDigit(r):
 			length++
 			num, _ := strconv.Atoi(string(r))
 			if double {
