@@ -17,8 +17,8 @@ const SecondsInYear = 365.25 * 24 * 60 * 60
 
 func Age(seconds float64, planet Planet) float64 {
 	orbital, exists := orbitals[planet]
-	if exists {
-		return seconds / orbital / SecondsInYear
+	if !exists {
+		return -1
 	}
-	return -1
+	return seconds / orbital / SecondsInYear
 }
