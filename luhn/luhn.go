@@ -1,3 +1,4 @@
+// Package luhn provides functionality for validating numbers using the Luhn algorithm.
 package luhn
 
 import (
@@ -5,6 +6,7 @@ import (
 	"unicode"
 )
 
+// Valid() takes a number represented by a string and returns its Luhn algorithm validation result.
 func Valid(id string) bool {
 	double_next := false
 	length := 0
