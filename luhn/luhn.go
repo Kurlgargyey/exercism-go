@@ -8,7 +8,6 @@ import (
 
 // Valid() takes a number represented by a string and returns its Luhn algorithm validation result.
 func Valid(id string) bool {
-	double_next := false
 	length := 0
 	sum := 0
 	runes := []rune(id)
@@ -22,16 +21,14 @@ func Valid(id string) bool {
 		case unicode.IsDigit(r):
 			length++
 			num, _ := strconv.Atoi(string(r))
-			if double_next {
+			if length%2 == 0 {
 				num = num * 2
 				if num > 9 {
 					num = num - 9
 				}
 				sum += num
-				double_next = false
 			} else {
 				sum += num
-				double_next = true
 			}
 		}
 	}
