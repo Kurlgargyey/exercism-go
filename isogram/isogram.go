@@ -1,3 +1,4 @@
+// Package isogram contains functionality for determining whether a string is an isogram.
 package isogram
 
 import (
@@ -5,6 +6,7 @@ import (
 	"unicode"
 )
 
+// IsIsogram takes a string and returns a bool indicating whether the string is an isogram.
 func IsIsogram(word string) bool {
 	freqs := make(map[rune]int)
 	for _, r := range strings.ToLower(word) {
