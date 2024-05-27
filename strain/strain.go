@@ -6,7 +6,7 @@ package strain
 // They are not part of the Exercism syllabus yet but you can learn about
 // them here: https://go.dev/tour/generics/1
 func Keep[T any](s []T, cond func(T) bool) []T {
-	selection := make([]T,0)
+	selection := make([]T,0,len(s))
 	for _, t := range s {
 		if cond(t) {
 			selection = append(selection, t)
