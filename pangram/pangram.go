@@ -5,12 +5,14 @@ import (
 	"unicode"
 )
 
+const all_letters int = 0b11111111111111111111111111
+
 func IsPangram(input string) bool {
-	letters := make(map[rune]int)
+	letters := 0
 	for _, r := range strings.ToLower(input) {
 		if unicode.IsLetter(r) {
-			letters[r] = 1
+			letters |= 1 << (r-'a')
 		}
 	}
-	return len(letters) == 26
+	return all_letters & letters == all_letters
 }
