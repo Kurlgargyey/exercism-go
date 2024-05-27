@@ -6,21 +6,21 @@ package strain
 // They are not part of the Exercism syllabus yet but you can learn about
 // them here: https://go.dev/tour/generics/1
 func Keep[T any](s []T, cond func(T) bool) []T {
-	result := make([]T,0)
+	selection := make([]T,0)
 	for _, t := range s {
 		if cond(t) {
-			result = append(result, t)
+			selection = append(selection, t)
 		}
 	}
-	return result
+	return selection
 }
 
 func Discard[T any](s []T, cond func(T) bool) []T {
-	result := make([]T,0)
+	remainder := make([]T,0)
 	for _, t := range s {
 		if !cond(t) {
-			result = append(result, t)
+			remainder = append(remainder, t)
 		}
 	}
-	return result
+	return remainder
 }
