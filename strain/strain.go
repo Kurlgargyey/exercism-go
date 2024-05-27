@@ -16,11 +16,5 @@ func Keep[T any](s []T, cond func(T) bool) []T {
 }
 
 func Discard[T any](s []T, cond func(T) bool) []T {
-	remainder := make([]T,0)
-	for _, t := range s {
-		if !cond(t) {
-			remainder = append(remainder, t)
-		}
-	}
-	return remainder
+	return Keep(s, func(val T) bool {return !cond(val)})
 }
