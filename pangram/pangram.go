@@ -13,6 +13,7 @@ func IsPangram(input string) bool {
 		if unicode.IsLetter(r) {
 			letters |= 1 << (r-'a')
 		}
+		if letters == all_letters {return true}
 	}
-	return all_letters & letters == all_letters
+	return false
 }
